@@ -28,19 +28,6 @@ const Recent = () => {
         return () => disposed = true
     })
 
-    // useEffect(() => {
-    //     spotifyApi.getMyRecentlyPlayedTracks()
-    //         .then(response => {
-    //             var rawData = response.body.items
-    //             var data = rawData.map(item => {
-    //                 return item.track
-    //             })
-    //             setRecentlyPlayed(data)
-    //         })
-    //         .catch(err => console.log(err))
-
-    // }, [accessToken])
-
     if (error != null) {
         return <span className="error">{error.message}</span>
     }

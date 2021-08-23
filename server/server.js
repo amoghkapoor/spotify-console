@@ -1,7 +1,7 @@
 const express = require("express")
 const cors = require("cors")
 const SpotifyWebApi = require("spotify-web-api-node")
-require("dotenv").config()
+require('dotenv').config()
 
 const app = express()
 app.use(cors())
@@ -11,6 +11,7 @@ app.listen(3001, () => { console.log('server is running on port 3001') });
 
 app.post('/', function (req, res) {
     res.status(200)
+    console.log(process.env.CLIENT_ID)
 });
 
 app.post("/refresh", (req, res) => {
@@ -63,6 +64,4 @@ app.post("/login", (req, res) => {
             console.log("server", err);
         })
 
-
 })
-

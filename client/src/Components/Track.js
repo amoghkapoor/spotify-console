@@ -3,7 +3,7 @@ import "../styles/track.scss";
 
 const Track = ({ track, styles }) => {
     const song = track
-    console.log(song)
+    // console.log(song)
 
     let seconds = Math.floor((song.duration_ms / 1000) % 60)
 
