@@ -3,4 +3,4 @@ A Spotify clone which gives the user a preview of 30 seconds and analysis for ea
 
 ## In Development
 
-#### Project inspiration: ![Brittany Chiang](https://github.com/bchiang7)
+#### Project inspiration: [Brittany Chiang](https://github.com/bchiang7)
