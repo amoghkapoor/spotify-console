@@ -1,0 +1,89 @@
+@import "./variables";
+
+.dashboard-outer-container {
+	padding-top: 4rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.user-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 4rem;
+
+		.user-name {
+			font-size: 3rem;
+			letter-spacing: 0px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: $green-primary;
+			}
+		}
+
+		.user-image-container {
+			width: 160px;
+			height: 160px;
+			border-radius: 50%;
+			border: 3px solid #fff;
+			display: flex;
+			position: relative;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 1.5rem;
+
+			.user-image {
+				width: 95%;
+				height: 95%;
+				border-radius: 50%;
+				object-fit: cover;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		.user-data {
+			margin-top: 2rem;
+			display: flex;
+			justify-content: space-between;
+
+			.user-data-content {
+				margin-right: 1rem;
+
+				.user-data-value {
+					color: $green-primary;
+					font-weight: 600;
+					font-size: 1.1rem;
+				}
+
+				.user-data-heading {
+					margin-top: 0.5rem;
+					color: rgb(155, 155, 155);
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
+
+	.dashboard-split {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		// gap: 1rem;
+	}
+}
+
+.user-icon-svg {
+	fill: rgb(255, 255, 255);
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

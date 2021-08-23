@@ -1,0 +1,27 @@
+.filter-container {
+	position: absolute;
+	right: 5rem;
+
+	.range-button {
+		background-color: transparent;
+		color: #fff;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		margin: 0 0.5rem;
+		font-size: 1.25rem;
+		color: rgb(155, 155, 155);
+		transition: all 0.3s ease;
+		border-bottom: 1px solid transparent;
+		padding-bottom: 0.1rem;
+
+		&:hover {
+			color: #fff;
+		}
+	}
+
+	.active {
+		color: #fff;
+		border-color: #fff;
+	}
+}

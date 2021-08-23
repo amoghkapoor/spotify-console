@@ -1,0 +1,30 @@
+@import "./variables";
+
+.login-container {
+	height: 100vh;
+	width: 100vw;
+	background-color: $dark-primary;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	.heading {
+		font-weight: 800;
+		font-size: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.login-button {
+		background-color: $green-primary;
+		padding: 1rem 2rem;
+		border-radius: 3rem;
+		font-weight: 600;
+		transition: all 0.1s ease;
+
+		&:hover {
+			background-color: $green-secondary;
+		}
+	}
+}

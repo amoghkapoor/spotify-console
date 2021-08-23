@@ -1,0 +1,21 @@
+.artists-grid-outer-container {
+	margin-top: 2rem;
+
+	.artists-grid {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1rem;
+		row-gap: 3rem;
+		margin: 0 5rem;
+	}
+
+	.heading {
+		font-weight: 600;
+		font-size: 2rem;
+		margin-bottom: 3rem;
+		padding-left: 6.5rem;
+		display: flex;
+		justify-content: flex-start;
+		width: fit-content;
+	}
+}

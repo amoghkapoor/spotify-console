@@ -1,0 +1,98 @@
+.track-container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+	cursor: pointer;
+
+	.track-content-left {
+		display: flex;
+
+		.track-image-container {
+			position: relative;
+			width: 50px;
+			height: 50px;
+			margin-right: 1.5rem;
+
+			.track-image {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.image-overlay {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				height: 100%;
+				width: 100%;
+				opacity: 0;
+				transition: all 0.4s ease;
+				background-color: #000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		.track-details {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.track-name {
+				font-size: 1rem;
+				margin-bottom: 0.25rem;
+				width: fit-content;
+				transition: all 0.3s ease;
+				border-bottom: 1px solid transparent;
+				padding-bottom: 0.1rem;
+
+				&:hover {
+					border-color: #fff;
+				}
+			}
+
+			.track-artist-album {
+				font-size: 0.75rem;
+				color: rgb(155, 155, 155);
+				width: 35rem;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+				max-height: 1rem;
+				display: flex;
+				justify-content: flex-start;
+
+				.track-artist {
+					margin-right: 0.5rem;
+				}
+
+				.track-album {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+	}
+
+	.track-content-right {
+		font-size: 0.9rem;
+		color: rgb(155, 155, 155);
+	}
+
+	&:hover {
+		.track-content-left {
+			.track-image-container {
+				.image-overlay {
+					opacity: 0.6;
+				}
+			}
+		}
+	}
+}
