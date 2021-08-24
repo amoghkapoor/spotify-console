@@ -3,6 +3,8 @@ import TracksRow from "../Components/TracksRow"
 import "../styles/topTracks.scss"
 import { useSpotify } from '../Spotify/SpotifyContext'
 
+let number = 0
+
 const TopTracks = () => {
     const { api, refreshableCall } = useSpotify()
     const [error, setError] = useState(null)
@@ -25,9 +27,14 @@ const TopTracks = () => {
                 setUserTopSongs([])
                 setError(err)
             });
+        increment()
 
         return () => disposed = true
-    });
+    }, [number]);
+
+    const increment = () => {
+        number += 1
+    }
 
     const toggleActive = (button) => {
         let buttons = document.querySelectorAll(".range-button")

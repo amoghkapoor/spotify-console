@@ -3,6 +3,8 @@ import TracksRow from "../Components/TracksRow"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import "../styles/recent.scss"
 
+let number = 0
+
 const Recent = () => {
     const { api, refreshableCall } = useSpotify()
     const [error, setError] = useState(null)
@@ -25,8 +27,13 @@ const Recent = () => {
                 setRecentlyPlayed([])
                 setError(err)
             });
+        increment()
         return () => disposed = true
-    })
+    }, [number])
+
+    const increment = () => {
+        number += 1
+    }
 
     if (error != null) {
         return <span className="error">{error.message}</span>

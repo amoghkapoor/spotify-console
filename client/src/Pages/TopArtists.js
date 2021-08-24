@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import ArtistsGrid from '../Components/ArtistsGrid'
 import { useSpotify } from "../Spotify/SpotifyContext"
 
+let number = 0
+
 const TopArtists = () => {
 
     const { api, refreshableCall } = useSpotify()
@@ -25,8 +27,13 @@ const TopArtists = () => {
                 setUserTopArtists([])
                 setError(err)
             });
+        increment()
         return () => disposed = true
-    })
+    }, [number])
+
+    const increment = () => {
+        number += 1
+    }
 
     const toggleActive = (button) => {
         let buttons = document.querySelectorAll(".range-button")

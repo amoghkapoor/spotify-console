@@ -1,10 +1,10 @@
 import React from 'react'
 import "../styles/track.scss";
+import { IconContext } from "react-icons"
+import * as AiIcons from 'react-icons/ai'
 
 const Track = ({ track, styles }) => {
     const song = track
-    // console.log(song)
-
     let seconds = Math.floor((song.duration_ms / 1000) % 60)
 
     if (seconds < 10) {
@@ -24,7 +24,9 @@ const Track = ({ track, styles }) => {
                         alt={song.name}
                         className="track-image" />
                     <div className="image-overlay">
-                        icon
+                        <IconContext.Provider value={{ className: "overlay-icon" }}>
+                            <AiIcons.AiFillExclamationCircle />
+                        </IconContext.Provider>
                     </div>
                 </div>
 

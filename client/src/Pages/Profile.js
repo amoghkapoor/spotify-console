@@ -2,7 +2,10 @@ import React, { useEffect, useState } from 'react'
 import TracksRow from "../Components/TracksRow"
 import ArtistsRow from "../Components/ArtistsRow"
 import { useSpotify } from "../Spotify/SpotifyContext"
-import "../styles/dashboard.scss"
+import "../styles/profile.scss"
+import { logout } from "../Spotify/SpotifyContext"
+
+let number = 0
 
 const Dashboard = () => {
     const { api, refreshableCall } = useSpotify()
@@ -33,11 +36,7 @@ const Dashboard = () => {
                 setUserTopSongs([])
                 setError(err)
             });
-        return () => disposed = true
-    })
 
-    useEffect(() => {
-        let disposed = false
         refreshableCall(() => api.getMe())
             .then((res) => {
                 if (disposed) return
@@ -58,12 +57,7 @@ const Dashboard = () => {
                 setUserId("")
                 setError(err)
             });
-        return () => disposed = true
 
-    })
-
-    useEffect(() => {
-        let disposed = false
         refreshableCall(() => api.getFollowedArtists())
             .then((res) => {
                 if (disposed) return
@@ -76,12 +70,7 @@ const Dashboard = () => {
                 setUserFollowing([])
                 setError(err)
             });
-        return () => disposed = true
 
-    })
-
-    useEffect(() => {
-        let disposed = false
         refreshableCall(() => api.getMyTopArtists({
             limit: 10,
             time_range: "long_term"
@@ -98,9 +87,14 @@ const Dashboard = () => {
                 setUserTopArtists([])
                 setError(err)
             });
-        return () => disposed = true
+        increment()
 
-    })
+        return () => disposed = true
+    }, [number])
+
+    const increment = () => {
+        number += 1
+    }
 
     if (error != null) {
         return <span className="error">{error.message}</span>
@@ -130,6 +124,7 @@ const Dashboard = () => {
                         <p className="user-data-heading">PLAYLISTS</p>
                     </div>
                 </div>
+                <button className="logout-button" onClick={() => logout()}>LOGOUT</button>
             </div>
 
             <div className="dashboard-split">

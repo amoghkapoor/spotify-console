@@ -1,5 +1,7 @@
 import React from 'react'
 import "../styles/artist.scss"
+import { IconContext } from "react-icons"
+import * as AiIcons from 'react-icons/ai'
 
 const Artist = ({ artist, size, styles }) => {
     return (
@@ -25,7 +27,11 @@ const Artist = ({ artist, size, styles }) => {
                     alt={artist.name}
                     className="artist-image"
                 />
-                <div className="overlay">icon</div>
+                <div className="overlay">
+                    <IconContext.Provider value={{ className: "overlay-icon" }}>
+                        <AiIcons.AiFillExclamationCircle />
+                    </IconContext.Provider>
+                </div>
             </div>
             <div className="artist-name">{artist.name}</div>
         </div>

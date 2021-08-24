@@ -10,19 +10,35 @@ const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
 
     const showSidebar = () => setSidebar(!sidebar);
+    const toggleButton = () => {
+        const button = document.querySelector(".navbar")
+        console.log(sidebar)
+        if (!sidebar) {
+            button.style.display = "none"
+        }
+        else {
+            button.style.display = "block"
+        }
+    }
 
     return (
         <>
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className='navbar'>
                     <Link to='#' className='menu-bars'>
-                        <FaIcons.FaBars onClick={showSidebar} />
+                        <FaIcons.FaBars onClick={() => {
+                            showSidebar();
+                            toggleButton()
+                        }} />
                     </Link>
                 </div>
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
-                    <ul className='nav-menu-items' onClick={showSidebar}>
+                    <ul className='nav-menu-items' onClick={() => {
+                        showSidebar();
+                        toggleButton()
+                    }}>
                         <li className='navbar-toggle'>
-                            <Link to='#' className='menu-bars'>
+                            <Link to='#' className='menu-close'>
                                 <AiIcons.AiOutlineClose />
                             </Link>
                         </li>
