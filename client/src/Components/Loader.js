@@ -4,7 +4,6 @@ import "../styles/loader.scss"
 const Loader = require('react-loaders').Loader;
 
 const LoaderComponent = () => {
-    console.log(Loader)
     return (
         <div className="loader-container">
             <Loader

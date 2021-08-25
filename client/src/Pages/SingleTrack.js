@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import Loader from "../Components/Loader"
 import "../styles/singleTrack.scss"
+import AudioPlayer from 'react-h5-audio-player'
 
 let number = 0
 
@@ -12,9 +13,7 @@ const SingleTrack = () => {
     const [audioFeatures, setAudioFeatures] = useState(null)
     const [audioAnalysis, setAudioAnalysis] = useState(null)
     const [track, setTrack] = useState(null)
-    const [data, setData] = useState("test1")
-
-    // setData("test2")
+    const [data, setData] = useState(null)
 
     let { id } = useParams()
 
@@ -28,6 +27,8 @@ const SingleTrack = () => {
     let mode;
     let tempo;
     let time_signature
+
+    let preview_url;
 
     if (track && audioAnalysis && audioFeatures) {
         seconds = Math.floor((track.duration_ms / 1000) % 60)
@@ -44,19 +45,13 @@ const SingleTrack = () => {
         mode = audioFeatures.mode
         tempo = Math.round(audioFeatures.tempo)
         time_signature = audioFeatures.time_signature
+
+        preview_url = track.preview_url
     }
 
-    if (audioFeatures) {
-        let acousticness = audioFeatures.acousticness
-        let danceability = audioFeatures.danceability
-        let energy = audioFeatures.energy
-        let instrumentalness = audioFeatures.instrumentalness
-        let liveness = audioFeatures.liveness
-        let speechiness = audioFeatures.speechiness
-        let valence = audioFeatures.valence
-        setData([acousticness, danceability])
+    useEffect(() => {
 
-    }
+    }, [audioFeatures])
 
     useEffect(() => {
         let disposed = false
@@ -78,6 +73,14 @@ const SingleTrack = () => {
                 if (disposed) return
                 setAudioFeatures(res.body)
                 setError(null)
+                let acousticness = res.body.acousticness
+                let danceability = res.body.danceability
+                let energy = res.body.energy
+                let instrumentalness = res.body.instrumentalness
+                let liveness = res.body.liveness
+                let speechiness = res.body.speechiness
+                let valence = res.body.valence
+                setData([{ acousticness }, { danceability }, { energy }, { liveness }, { speechiness }, { valence }, { instrumentalness }])
             })
             .catch((err) => {
                 if (disposed) return
@@ -105,8 +108,6 @@ const SingleTrack = () => {
     const increment = () => {
         number += 1
     }
-    console.log(audioFeatures)
-    console.log(data)
 
     return (
         <div className="track-outer-container">
@@ -117,8 +118,6 @@ const SingleTrack = () => {
                         {track.name}
                         <br />
                         {track.popularity}
-                        <br />
-                        {track.preview_url}
                         <br />
                         {track.external_urls["spotify"]}
 
@@ -160,8 +159,19 @@ const SingleTrack = () => {
 
                     </div>
                 </div>
-
                 : <Loader />}
+
+            {preview_url ?
+                <AudioPlayer
+                    src={preview_url}
+                    hasDefaultKeyBindings
+                    showJumpControls={false}
+                    showDownloadProgress={false}
+                    showFilledVolume
+                    customAdditionalControls={[]}
+                    layout={"stacked-reverse"}
+                /> :
+                null}
 
         </div >
     )
