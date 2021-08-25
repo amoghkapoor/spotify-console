@@ -29,6 +29,7 @@ const Recent = () => {
             });
         increment()
         return () => disposed = true
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [number])
 
     const increment = () => {

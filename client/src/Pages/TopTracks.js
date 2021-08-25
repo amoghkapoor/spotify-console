@@ -30,7 +30,8 @@ const TopTracks = () => {
         increment()
 
         return () => disposed = true
-    }, [number]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [number, range]);
 
     const increment = () => {
         number += 1
@@ -52,46 +53,47 @@ const TopTracks = () => {
         return <span className="warning">No tracks found.</span>
     }
 
-    return (<div className="top-tracks-outer-container">
-        <div className="filter-container">
-            <button
-                className="range-button active"
-                onClick={(e) => {
-                    setRange("long_term")
-                    toggleActive(e.target)
-                }}>
-                All Time
-            </button>
-            <button
-                className="range-button"
-                onClick={(e) => {
-                    setRange("medium_term")
-                    toggleActive(e.target)
-                }}>
-                Last 6 Months
-            </button>
-            <button
-                className="range-button"
-                onClick={(e) => {
-                    setRange("short_term")
-                    toggleActive(e.target)
-                }}>
-                Last 4 Weeks
-            </button>
-        </div>
+    return (
+        <div className="top-tracks-outer-container">
+            <div className="filter-container">
+                <button
+                    className="range-button active"
+                    onClick={(e) => {
+                        setRange("long_term")
+                        toggleActive(e.target)
+                    }}>
+                    All Time
+                </button>
+                <button
+                    className="range-button"
+                    onClick={(e) => {
+                        setRange("medium_term")
+                        toggleActive(e.target)
+                    }}>
+                    Last 6 Months
+                </button>
+                <button
+                    className="range-button"
+                    onClick={(e) => {
+                        setRange("short_term")
+                        toggleActive(e.target)
+                    }}>
+                    Last 4 Weeks
+                </button>
+            </div>
 
-        <TracksRow
-            heading="Top Tracks"
-            songs={userTopSongs}
-            styles={
-                {
-                    headingSize: "2rem",
-                    containerWidth: "100%"
+            <TracksRow
+                heading="Top Tracks"
+                songs={userTopSongs}
+                styles={
+                    {
+                        headingSize: "2rem",
+                        containerWidth: "100%"
+                    }
                 }
-            }
-        />
+            />
 
-    </div>
+        </div>
     )
 }
 

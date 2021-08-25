@@ -29,7 +29,8 @@ const TopArtists = () => {
             });
         increment()
         return () => disposed = true
-    }, [number])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [number, range])
 
     const increment = () => {
         number += 1
@@ -80,7 +81,8 @@ const TopArtists = () => {
                 artists={userTopArtists}
                 styles={{
                     flexDirection: "column",
-                    justifyContent: "center"
+                    justifyContent: "center",
+                    marginBottom: "1rem",
                 }} />
         </div>
     )

@@ -4,6 +4,7 @@ import ArtistsRow from "../Components/ArtistsRow"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import "../styles/profile.scss"
 import { logout } from "../Spotify/SpotifyContext"
+import Loader from "../Components/Loader"
 
 let number = 0
 
@@ -19,9 +20,22 @@ const Dashboard = () => {
     const [userFollowing, setUserFollowing] = useState("")
     const [userTopArtists, setUserTopArtists] = useState([])
     const [userTopSongs, setUserTopSongs] = useState([])
+    const [userSavedPlaylists, setUserSavedPlaylists] = useState("")
 
     useEffect(() => {
         let disposed = false
+        refreshableCall(() => api.getUserPlaylists())
+            .then((res) => {
+                if (disposed) return
+                setUserSavedPlaylists(res.body.total)
+                setError(null)
+            })
+            .catch((err) => {
+                if (disposed) return
+                setUserSavedPlaylists("")
+                setError(err)
+            })
+
         refreshableCall(() => api.getMyTopTracks({
             limit: 10,
             time_range: "long_term"
@@ -87,17 +101,18 @@ const Dashboard = () => {
                 setUserTopArtists([])
                 setError(err)
             });
-        increment()
 
+        increment()
         return () => disposed = true
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [number])
 
     const increment = () => {
         number += 1
     }
 
-    if (error != null) {
-        return <span className="error">{error.message}</span>
+    if (!userSavedPlaylists) {
+        return <Loader />
     }
 
     return (
@@ -120,7 +135,7 @@ const Dashboard = () => {
                         <p className="user-data-heading">FOLLOWING</p>
                     </div>
                     <div className="playlists user-data-content">
-                        <p className="user-data-value">3</p>
+                        <p className="user-data-value">{userSavedPlaylists}</p>
                         <p className="user-data-heading">PLAYLISTS</p>
                     </div>
                 </div>

@@ -5,6 +5,7 @@ import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { Data } from './SidebarData';
 import { IconContext } from 'react-icons';
+import logo from "../assets/spotify-icon.png"
 
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -22,7 +23,7 @@ const Sidebar = () => {
     }
 
     return (
-        <>
+        <div className="navbar-container">
             <IconContext.Provider value={{ color: '#fff' }}>
                 <div className='navbar'>
                     <Link to='#' className='menu-bars'>
@@ -38,9 +39,14 @@ const Sidebar = () => {
                         toggleButton()
                     }}>
                         <li className='navbar-toggle'>
-                            <Link to='#' className='menu-close'>
-                                <AiIcons.AiOutlineClose />
-                            </Link>
+                            <div className='navbar-menu'>
+                                <Link to="/">
+                                    <img src={logo} alt="Spotify Logo" className='navbar-logo' />
+                                </Link>
+                                <Link to='#' className='menu-close'>
+                                    <AiIcons.AiOutlineClose />
+                                </Link>
+                            </div>
                         </li>
                         {Data.map((item, index) => {
                             return (
@@ -55,7 +61,7 @@ const Sidebar = () => {
                     </ul>
                 </nav>
             </IconContext.Provider>
-        </>
+        </div>
     )
 }
 

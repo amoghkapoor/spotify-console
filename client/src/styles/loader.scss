@@ -1,0 +1,19 @@
+@import "./variables";
+@import "~loaders.css/src/animations/line-scale-pulse-out.scss";
+
+.loader-container {
+	overflow: hidden;
+	max-width: 100vw;
+	height: calc(100vh - 8rem);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	* {
+		transform: scale(3);
+	}
+}
+
+.line-scale-pulse-out > div {
+	background-color: $dark-light;
+}

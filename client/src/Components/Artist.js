@@ -21,6 +21,8 @@ const Artist = ({ artist, size, styles }) => {
                     width: size,
                     height: size,
                     marginRight: styles.marginRight,
+                    marginBottom: styles.marginBottom,
+
                 }}>
                 <img
                     src={artist.images[0].url}

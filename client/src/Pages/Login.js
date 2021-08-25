@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/login.scss"
+import Loader from "../Components/Loader"
 
 import { useSpotify } from '../Spotify/SpotifyContext'
 
@@ -55,7 +56,7 @@ const Login = () => {
 
     if (code) {
         // TODO: Render progress bar/spinner/throbber for "Signing in..."
-        return ("loading")
+        return <Loader />
     }
 
     // if here, no code & no error. Show login button
