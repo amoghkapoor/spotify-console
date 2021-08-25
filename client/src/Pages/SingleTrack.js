@@ -54,7 +54,7 @@ const SingleTrack = () => {
         let liveness = audioFeatures.liveness
         let speechiness = audioFeatures.speechiness
         let valence = audioFeatures.valence
-        setData(acousticness, danceability)
+        setData([acousticness, danceability])
 
     }
 
