@@ -4,6 +4,100 @@
 	position: relative;
 	padding: 4rem;
 	padding-bottom: 8rem;
+
+	.track {
+		display: flex;
+		margin-bottom: 5rem;
+
+		.track-image {
+			width: 250px;
+			height: 250px;
+			object-fit: cover;
+			margin-right: 2rem;
+		}
+
+		.track-metadata {
+			display: flex;
+			flex-direction: column;
+
+			.track-name {
+				font-weight: 600;
+				font-size: 3rem;
+				margin-bottom: 1rem;
+			}
+
+			.track-artists {
+				font-size: 1.35rem;
+				color: rgb(155, 155, 155);
+				font-weight: 600;
+				margin-bottom: 0.75rem;
+			}
+
+			.track-album {
+				color: rgb(155, 155, 155);
+				font-size: 1rem;
+				margin-bottom: 1rem;
+
+				.album-name {
+					margin-right: 0.5rem;
+				}
+
+				.release-year {
+					margin-left: 0.5rem;
+				}
+			}
+
+			.track-link {
+				padding: 0.75rem;
+				width: 10rem;
+				background-color: $green-primary;
+				font-size: 0.8rem;
+				font-weight: 600;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 3rem;
+				color: #fff;
+				outline: none;
+				border: none;
+				margin-bottom: 1rem;
+				cursor: pointer;
+
+				&:hover {
+					background-color: $green-secondary;
+				}
+			}
+		}
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(100px, 1fr));
+		width: 100%;
+		margin-bottom: 50px;
+		text-align: center;
+		border-top: 1px solid rgb(86, 86, 86);
+		border-left: 1px solid rgb(86, 86, 86);
+		// grid-template-columns: repeat(2, minmax(100px, 1fr));
+		// grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+
+		.feature {
+			padding: 15px 10px;
+			border-bottom: 1px solid rgb(86, 86, 86);
+			border-right: 1px solid rgb(86, 86, 86);
+			color: rgb(155, 155, 155);
+
+			.feature-text {
+				font-size: 1.875rem;
+				font-weight: 600;
+				margin-bottom: 0.25rem;
+			}
+
+			.feature-label {
+				font-size: 0.8rem;
+			}
+		}
+	}
 }
 
 $rhap_theme-color: rgb(179, 179, 179) !default;

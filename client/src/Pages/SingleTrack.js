@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import Loader from "../Components/Loader"
@@ -14,6 +14,7 @@ const SingleTrack = () => {
     const [audioAnalysis, setAudioAnalysis] = useState(null)
     const [track, setTrack] = useState(null)
     const [data, setData] = useState(null)
+    const player = useRef();
 
     let { id } = useParams()
 
@@ -23,12 +24,14 @@ const SingleTrack = () => {
     let sections;
     let segments;
 
-    let key;
+    let key_value;
     let mode;
     let tempo;
     let time_signature
 
     let preview_url;
+
+    let artist_href;
 
     if (track && audioAnalysis && audioFeatures) {
         seconds = Math.floor((track.duration_ms / 1000) % 60)
@@ -41,17 +44,65 @@ const SingleTrack = () => {
         sections = audioAnalysis.sections.length
         segments = audioAnalysis.segments.length
 
-        key = audioFeatures.key
+        key_value = audioFeatures.key
         mode = audioFeatures.mode
         tempo = Math.round(audioFeatures.tempo)
         time_signature = audioFeatures.time_signature
 
         preview_url = track.preview_url
+        console.log(track.artists)
     }
 
-    useEffect(() => {
+    let key;
+    const parsePitchClass = (key_value) => {
+        key = key_value;
 
-    }, [audioFeatures])
+        switch (key_value) {
+            case 0:
+                key = 'C';
+                break;
+            case 1:
+                key = 'D♭';
+                break;
+            case 2:
+                key = 'D';
+                break;
+            case 3:
+                key = 'E♭';
+                break;
+            case 4:
+                key = 'E';
+                break;
+            case 5:
+                key = 'F';
+                break;
+            case 6:
+                key = 'G♭';
+                break;
+            case 7:
+                key = 'G';
+                break;
+            case 8:
+                key = 'A♭';
+                break;
+            case 9:
+                key = 'A';
+                break;
+            case 10:
+                key = 'B♭';
+                break;
+            case 11:
+                key = 'B';
+                break;
+            default:
+                key = null;
+        }
+        return key
+    }
+
+    const audiofunction = () => {
+        player.current.audio.current.play();
+    };
 
     useEffect(() => {
         let disposed = false
@@ -105,6 +156,7 @@ const SingleTrack = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [number])
 
+
     const increment = () => {
         number += 1
     }
@@ -115,48 +167,86 @@ const SingleTrack = () => {
             {track && audioAnalysis && audioFeatures ?
                 <div className="track-inner-container">
                     <div className="track">
-                        {track.name}
-                        <br />
-                        {track.popularity}
-                        <br />
-                        {track.external_urls["spotify"]}
-
-                        <br />
                         <img
                             src={track.album["images"][0].url}
                             alt={track.name}
                             className="track-image" />
-                        <br />
-                        {track.artists.map(artist => {
-                            return (artist.name)
-                        })
-                            .join(", ")
-                        }
-                        <br />
-                        {track.album.release_date.slice(0, 4)}
+                        <div className="track-metadata">
+                            <div className="track-name">{track.name}</div>
+                            <div className="track-artists">
+                                {track.artists.map((artist, i) => (
+                                    <a href={artist_href = `/artist/${artist.id}`} key={i}>
+                                        {artist.name}
+                                        {track.artists.length > 0 && i === track.artists.length - 1 ? '' : ','}
+                                        &nbsp;
+                                    </a>
+                                ))}
+                            </div>
+                            <div className="track-album">
+                                <a href={track.album.external_urls.spotify}
+                                    target="_blank"
+                                    rel="noopener noreferrer" className="album-name">
+                                    {track.album.name}
+                                </a>
+                                &bull;
+                                <span className="release-year">
+                                    {track.album.release_date.slice(0, 4)}
+                                </span>
+                            </div>
+
+                            <a href={track.external_urls["spotify"]} className="track-link" target="_blank" rel="noopener noreferrer">PLAY ON SPOTIFY</a>
+                            {preview_url ?
+                                <button className="track-link" onClick={() => audiofunction()}>
+                                    PLAY PREVIEW
+                                </button> : null}
+
+
+                        </div>
                     </div>
 
-                    <div className="track-info">
-                        {bars}
-                        <br />
-                        {beats}
-                        <br />
-                        {sections}
-                        <br />
-                        {segments}
-                        <br />
-                        {Math.floor((track.duration_ms / 1000) / 60)}
-                        :
-                        {seconds}
-                        <br />
-                        {key}
-                        <br />
-                        {mode === 0 ? "Minor" : "Major"}
-                        <br />
-                        {tempo}
-                        <br />
-                        {time_signature}
 
+                    <div className="features">
+                        <div className="feature">
+                            <div className="feature-text">
+                                {Math.floor((track.duration_ms / 1000) / 60)}:{seconds}</div>
+                            <div className="feature-label">Duration</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{parsePitchClass(key_value)}</div>
+                            <div className="feature-label">Key</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{mode === 0 ? "Minor" : "Major"}</div>
+                            <div className="feature-label">Modality</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{time_signature}</div>
+                            <div className="feature-label">Time Signature</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{tempo}</div>
+                            <div className="feature-label">Tempo(BPM)</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{track.popularity}%</div>
+                            <div className="feature-label">popularity</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{bars}</div>
+                            <div className="feature-label">Bars</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{beats}</div>
+                            <div className="feature-label">Beats</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{sections}</div>
+                            <div className="feature-label">Sections</div>
+                        </div>
+                        <div className="feature">
+                            <div className="feature-text">{segments}</div>
+                            <div className="feature-label">Segments</div>
+                        </div>
                     </div>
                 </div>
                 : <Loader />}
@@ -170,6 +260,7 @@ const SingleTrack = () => {
                     showFilledVolume
                     customAdditionalControls={[]}
                     layout={"stacked-reverse"}
+                    ref={player}
                 /> :
                 null}
 
