@@ -60,7 +60,10 @@ const Sidebar = () => {
                             );
                         })}
                     </ul>
-                    <button className="logout-button" onClick={() => logout()}>Logout</button>
+                    <div className="footer">
+                        <button className="logout-button" onClick={() => logout()}>Logout</button>
+                        <a className="amogh" href="https://github.com/amoghkapoor" target="_blank" rel="noopener noreferrer">Made by: <span>Amogh Kapoor</span></a>
+                    </div>
                 </nav>
             </IconContext.Provider>
         </div>

@@ -13,7 +13,13 @@ export const Data = [
     },
     {
         title: 'Profile',
-        path: '/',
+        path: '/profile',
+        icon: <FaIcons.FaUser />,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Search',
+        path: '/search',
         icon: <FaIcons.FaUser />,
         cName: 'nav-text'
     },

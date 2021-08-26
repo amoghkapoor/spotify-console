@@ -11,6 +11,8 @@ const TopTracks = () => {
     const [range, setRange] = useState("long_term")
     const [userTopSongs, setUserTopSongs] = useState([])
 
+    console.log(userTopSongs)
+
     useEffect(() => {
         let disposed = false
         refreshableCall(() => api.getMyTopTracks({

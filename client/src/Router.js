@@ -9,6 +9,8 @@ import Sidebar from "./Components/Sidebar"
 import Profile from "./Pages/Profile"
 import SingleTrack from "./Pages/SingleTrack"
 import SingleArtist from "./Pages/SingleArtist"
+import Home from "./Pages/Home"
+import Search from "./Pages/Search"
 
 
 const MyRouter = () => {
@@ -25,7 +27,13 @@ const MyRouter = () => {
             <Sidebar />
             <Switch>
                 <Route exact path="/">
+                    <Home />
+                </Route>
+                <Route path="/profile">
                     <Profile />
+                </Route>
+                <Route path="/search">
+                    <Search />
                 </Route>
                 <Route path="/tracks">
                     <TopTracks />
