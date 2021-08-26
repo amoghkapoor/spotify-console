@@ -8,6 +8,7 @@ let number = 0
 const TopArtists = () => {
 
     const { api, refreshableCall } = useSpotify()
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = useState(null)
     const [range, setRange] = useState("long_term")
     const [userTopArtists, setUserTopArtists] = useState([])

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Data } from './SidebarData';
 import { IconContext } from 'react-icons';
 import logo from "../assets/spotify-icon.png"
+import { logout } from "../Spotify/SpotifyContext"
 
 const Sidebar = () => {
     const [sidebar, setSidebar] = useState(false);
@@ -59,6 +60,7 @@ const Sidebar = () => {
                             );
                         })}
                     </ul>
+                    <button className="logout-button" onClick={() => logout()}>Logout</button>
                 </nav>
             </IconContext.Provider>
         </div>

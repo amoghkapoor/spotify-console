@@ -4,6 +4,7 @@ import { useSpotify } from "../Spotify/SpotifyContext"
 import Loader from "../Components/Loader"
 import "../styles/singleTrack.scss"
 import AudioPlayer from 'react-h5-audio-player'
+import { Bar } from "react-chartjs-2"
 
 let number = 0
 
@@ -13,8 +14,58 @@ const SingleTrack = () => {
     const [audioFeatures, setAudioFeatures] = useState(null)
     const [audioAnalysis, setAudioAnalysis] = useState(null)
     const [track, setTrack] = useState(null)
-    const [data, setData] = useState(null)
     const player = useRef();
+
+    let data;
+    let options;
+
+    if (audioFeatures) {
+        data = {
+            "labels": [
+                "Acousticness",
+                "Danceability",
+                "Energy",
+                "Instrumentalness",
+                "Liveness",
+                "Speechiness",
+                "Valence"
+            ],
+            "datasets": [
+                {
+                    "label": "",
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.3)',
+                        'rgba(255, 159, 64, 0.3)',
+                        'rgba(255, 206, 86, 0.3)',
+                        'rgba(75, 192, 192, 0.3)',
+                        'rgba(54, 162, 235, 0.3)',
+                        'rgba(104, 132, 245, 0.3)',
+                        'rgba(153, 102, 255, 0.3)',
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(104, 132, 245, 1)',
+                        'rgba(153, 102, 255, 1)',
+                    ],
+                    data: [
+                        audioFeatures.acousticness,
+                        audioFeatures.danceability,
+                        audioFeatures.energy,
+                        audioFeatures.instrumentalness,
+                        audioFeatures.liveness,
+                        audioFeatures.speechiness,
+                        audioFeatures.valence,
+                    ],
+                    "borderWidth": "1"
+                }
+            ]
+        };
+        // options = 
+    }
 
     let { id } = useParams()
 
@@ -31,6 +82,7 @@ const SingleTrack = () => {
 
     let preview_url;
 
+    // eslint-disable-next-line no-unused-vars
     let artist_href;
 
     if (track && audioAnalysis && audioFeatures) {
@@ -124,14 +176,6 @@ const SingleTrack = () => {
                 if (disposed) return
                 setAudioFeatures(res.body)
                 setError(null)
-                let acousticness = res.body.acousticness
-                let danceability = res.body.danceability
-                let energy = res.body.energy
-                let instrumentalness = res.body.instrumentalness
-                let liveness = res.body.liveness
-                let speechiness = res.body.speechiness
-                let valence = res.body.valence
-                setData([{ acousticness }, { danceability }, { energy }, { liveness }, { speechiness }, { valence }, { instrumentalness }])
             })
             .catch((err) => {
                 if (disposed) return
@@ -250,6 +294,87 @@ const SingleTrack = () => {
                     </div>
                 </div>
                 : <Loader />}
+
+            {audioFeatures ? <Bar data={data} options={{
+                title: {
+                    display: true,
+                    text: "Full Description of Audio Features",
+                    position: "bottom",
+                    fullWidth: true,
+                    fontColor: "#9b9b9b",
+                    fontSize: 18,
+                    fontFamily: "Sans-serif"
+                },
+                legend: {
+                    display: false,
+                    fullWidth: false,
+                    position: "top"
+                },
+                scales: {
+                    yAxes: [
+                        {
+                            ticks: {
+                                beginAtZero: true,
+                                display: true,
+                                fontColor: "#9b9b9b",
+                                fontSize: 13
+                            },
+                            gridLines: {
+                                display: true,
+                                lineWidth: 2,
+                                drawOnChartArea: true,
+                                drawTicks: true,
+                                tickMarkLength: 12,
+                                offsetGridLines: true,
+                                zeroLineColor: "#9b9b9b",
+                                color: "#9b9b9b",
+                                zeroLineWidth: 2
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: ""
+                            },
+                            display: true
+                        }
+                    ],
+                    xAxes: [
+
+                        {
+                            ticks: {
+                                display: true,
+                                fontSize: 13,
+                                fontStyle: "italic",
+                                beginAtZero: false,
+                                padding: 12
+                            },
+                            display: true,
+                            gridLines: {
+                                display: true,
+                                lineWidth: 2,
+                                drawOnChartArea: true,
+                                drawTicks: true,
+                                tickMarkLength: 12,
+                                zeroLineWidth: 2,
+                                offsetGridLines: true,
+                                color: "#9b9b9b",
+                                zeroLineColor: "#9b9b9b"
+                            },
+                            scaleLabel: {
+                                fontSize: 16,
+                                display: false,
+                                fontStyle: "normal",
+                                labelString: ""
+                            }
+                        }
+                    ]
+                },
+                tooltips: {
+                    enabled: true,
+                    mode: "label",
+                    caretSize: 10,
+                    backgroundColor: "#000000"
+                }
+            }} /> : null}
 
             {preview_url ?
                 <AudioPlayer

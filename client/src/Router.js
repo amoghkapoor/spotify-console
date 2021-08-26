@@ -8,6 +8,7 @@ import Recent from "./Pages/Recent"
 import Sidebar from "./Components/Sidebar"
 import Profile from "./Pages/Profile"
 import SingleTrack from "./Pages/SingleTrack"
+import SingleArtist from "./Pages/SingleArtist"
 
 
 const MyRouter = () => {
@@ -37,6 +38,9 @@ const MyRouter = () => {
                 </Route>
                 <Route path="/track/:id">
                     <SingleTrack />
+                </Route>
+                <Route path="/artist/:id">
+                    <SingleArtist />
                 </Route>
             </Switch>
         </Router>

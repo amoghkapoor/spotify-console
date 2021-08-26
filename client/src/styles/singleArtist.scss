@@ -1,0 +1,61 @@
+@import "./variables";
+
+.artist-inner-container {
+	padding: 4rem;
+	padding-bottom: 8rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.image-container {
+		width: 17.5rem;
+		height: 17.5rem;
+		border-radius: 50%;
+		overflow: hidden;
+		margin-bottom: 2rem;
+
+		.image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	.artist-name {
+		font-size: 4.5rem;
+		font-weight: 600;
+		margin-bottom: 3rem;
+
+		&:hover {
+			color: $green-primary !important;
+		}
+	}
+
+	.artist-info {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		width: 60%;
+		justify-content: center;
+		align-items: flex-start;
+		text-align: center;
+		font-size: 1.25rem;
+		color: rgb(80, 155, 245);
+
+		.label {
+			font-size: 1rem;
+			margin-bottom: 1rem;
+			color: rgb(155, 155, 155);
+		}
+
+		.artist-followers {
+		}
+
+		.artist-genres {
+			// margin-right: 2rem;
+			// margin-left: 2rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+}
