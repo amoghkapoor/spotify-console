@@ -8,19 +8,19 @@ export const Data = [
     {
         title: 'Home',
         path: '/',
-        icon: <AiIcons.AiFillHome />,
+        icon: <AiIcons.AiOutlineHome />,
         cName: 'nav-text'
     },
     {
         title: 'Profile',
         path: '/profile',
-        icon: <FaIcons.FaUser />,
+        icon: <AiIcons.AiOutlineUser />,
         cName: 'nav-text'
     },
     {
         title: 'Search',
         path: '/search',
-        icon: <FaIcons.FaUser />,
+        icon: <BsIcons.BsSearch />,
         cName: 'nav-text'
     },
     {

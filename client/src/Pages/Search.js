@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSpotify } from "../Spotify/SpotifyContext"
-import Loader from "../Components/Loader"
 import TracksRow from "../Components/TracksRow"
+import "../styles/search.scss"
+import * as VscIcon from 'react-icons/vsc'
+import * as AiIcons from 'react-icons/ai'
 
 let number = 0
 
@@ -40,8 +42,19 @@ const Search = () => {
     }
 
     return (
-        <div>
-            <input type="text" onChange={(e) => setQuery(e.target.value)} name="" id="" />
+        <div className="search-container">
+            <div className="search-bar-container">
+                <div className="search-icon">
+                    <AiIcons.AiOutlineSearch style={{}} />
+                </div>
+                <input
+                    type="search"
+                    className="search-bar"
+                    onChange={(e) => setQuery(e.target.value)}
+                    placeholder="Search for artists"
+                />
+            </div>
+            <div className="heading">Top Results</div>
             {results ? <TracksRow
                 songs={results}
                 styles={
@@ -51,6 +64,12 @@ const Search = () => {
                     }
                 }
             /> : null}
+            {query === " " ? <div className="search-no-results">
+                <VscIcon.VscSearchStop />
+                <span>
+                    No matching songs found.
+                </span>
+            </div> : null}
         </div>
     )
 }
