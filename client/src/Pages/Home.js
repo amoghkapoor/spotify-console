@@ -5,7 +5,7 @@ import PlaylistsRow from "../Components/PlaylistsRow"
 import GenresGrid from "../Components/GenresGrid"
 import Loader from "../Components/Loader"
 import "../styles/home.scss"
-import Icon from "../assets/spotify-icon.png"
+import Icon from "../assets/spotify-icon-name.png"
 import * as BsIcons from 'react-icons/bs'
 
 let number = 0

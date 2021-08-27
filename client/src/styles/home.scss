@@ -9,12 +9,12 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 4rem;
-	padding-right: 20rem;
+	padding-right: 10rem;
 
 	.icon {
-		width: 50px;
+		width: 200px;
 		height: 50px;
-		object-fit: cover;
+		object-fit: contain;
 	}
 
 	.search {
