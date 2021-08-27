@@ -7,7 +7,13 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-app.listen(3001, () => { console.log('server is running on port 3001') });
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static("../client/build"))
+}
+
+const PORT = process.env.PORT || 3001
+
+app.listen(PORT, () => { console.log(`server is running on port ${PORT}`) });
 
 app.post('/', function (req, res) {
     res.status(200)
@@ -18,7 +24,7 @@ app.post("/refresh", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://localhost:3000/',
+        redirectUri: 'http://localhost:3000/profile',
         refreshToken
     });
     spotifyApi.refreshAccessToken()
@@ -37,7 +43,7 @@ app.post("/login", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://localhost:3000'
+        redirectUri: 'http://localhost:3000/profile'
     });
     spotifyApi.authorizationCodeGrant(code)
         .then((data) => {
