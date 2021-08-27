@@ -1,5 +1,5 @@
 import React from 'react';
-import * as FaIcons from 'react-icons/fa';
+import * as RiIcons from 'react-icons/ri';
 import * as AiIcons from 'react-icons/ai';
 import * as GiIcons from 'react-icons/gi';
 import * as BsIcons from 'react-icons/bs';
@@ -41,5 +41,11 @@ export const Data = [
         icon: <BsIcons.BsArrowCounterclockwise />,
         cName: 'nav-text'
     },
+    {
+        title: 'Playlists',
+        path: '/library',
+        icon: <RiIcons.RiPlayListFill />,
+        cName: 'nav-text'
+    }
 
 ]

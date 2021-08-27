@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import { useParams } from "react-router-dom"
-import PlaylistsRow from "../Components/PlaylistsRow"
 import PlaylistsGrid from "../Components/PlaylistsGrid"
 import Loader from "../Components/Loader"
 
@@ -18,7 +17,9 @@ const GenrePlaylists = () => {
     useEffect(() => {
         let disposed = false
         refreshableCall(() => api.getPlaylistsForCategory(id, {
-            limit: 50
+            limit: 50,
+            locale: "en-IN",
+            country: "IN"
         }))
             .then((res) => {
                 if (disposed) return
@@ -60,7 +61,10 @@ const GenrePlaylists = () => {
     return (
         <>
             {genre && playlists ?
-                <PlaylistsGrid heading={genre.name} playlists={playlists} />
+                <PlaylistsGrid heading={genre.name} playlists={playlists} styles={{
+                    gridColumns: 4,
+                    size: "250"
+                }} />
                 : <Loader />}
         </>
     )

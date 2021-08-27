@@ -2,7 +2,7 @@ import React from 'react'
 import Playlist from './Playlist'
 import "../styles/playlistsGrid.scss"
 
-const PlaylistsGrid = ({ playlists, heading }) => {
+const PlaylistsGrid = ({ playlists, heading, styles }) => {
 
     return (
         <div className="playlists-grid-outer-container">
@@ -10,9 +10,11 @@ const PlaylistsGrid = ({ playlists, heading }) => {
 
             <div className="playlists-grid-inner-container">
                 {playlists ?
-                    <div className="playlists-grid-container">
+                    <div className="playlists-grid-container" style={{
+                        gridTemplateColumns: `repeat(${styles.gridColumns}, 1fr)`
+                    }}>
                         {playlists.map((playlist, index) => {
-                            return (<Playlist playlist={playlist} key={index} />)
+                            return (<Playlist playlist={playlist} key={index} styles={styles} />)
                         })}
                     </div >
                     : null}

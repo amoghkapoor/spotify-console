@@ -12,6 +12,7 @@ import Home from "./Pages/Home"
 import Search from "./Pages/Search"
 import PlaylistPage from "./Pages/PlaylistPage"
 import GenrePlaylists from "./Pages/GenrePlaylists"
+import Library from "./Pages/Library"
 
 
 const MyRouter = () => {
@@ -56,6 +57,9 @@ const MyRouter = () => {
                 </Route>
                 <Route path="/genre/:id">
                     <GenrePlaylists />
+                </Route>
+                <Route path="/library">
+                    <Library />
                 </Route>
             </Switch>
         </Router>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import { useParams } from "react-router-dom"
 import TracksRow from "../Components/TracksRow"
@@ -65,6 +64,7 @@ const PlaylistPage = () => {
                             <a href={playlist.external_urls.spotify} target="_blank" rel="noopener noreferrer" className="playlist-name">{_.capitalize(playlist.name)}</a>
                             <div className="playlist-description">{description}</div>
                             <div className="playlist-followers">Followers: {playlist.followers.total.toLocaleString()}</div>
+                            <div className="playlist-owner">{playlist.owner.display_name}</div>
                         </div>
                         <div className="overlay" />
                     </div>

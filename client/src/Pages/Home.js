@@ -76,6 +76,9 @@ const Home = () => {
                     <PlaylistsRow
                         heading="Featured Playlists"
                         playlists={featuredPlaylists}
+                        styles={{
+                            size: "250"
+                        }}
                     />
                     <GenresGrid
                         heading="Genres"
