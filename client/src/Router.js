@@ -13,6 +13,7 @@ import Search from "./Pages/Search"
 import PlaylistPage from "./Pages/PlaylistPage"
 import GenrePlaylists from "./Pages/GenrePlaylists"
 import Library from "./Pages/Library"
+import NotFound from "./Pages/NotFound"
 
 
 const MyRouter = () => {
@@ -60,6 +61,9 @@ const MyRouter = () => {
                 </Route>
                 <Route path="/library">
                     <Library />
+                </Route>
+                <Route>
+                    <NotFound />
                 </Route>
             </Switch>
         </Router>
