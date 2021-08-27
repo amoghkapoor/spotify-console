@@ -44,6 +44,10 @@ const PlaylistPage = () => {
         number += 1
     }
 
+    if (error) {
+        console.error(error)
+    }
+
     let color, description
     if (playlist) {
         color = playlist.primary_color
@@ -51,7 +55,7 @@ const PlaylistPage = () => {
         let index = description.indexOf("Cover")
         description = description.slice(0, index)
     }
-    console.log(playlist)
+
     return (
         <>
             {playlist && tracks ?

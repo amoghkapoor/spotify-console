@@ -13,8 +13,6 @@ const SingleArtist = () => {
     const { api, refreshableCall } = useSpotify()
     const [error, setError] = useState(null)
 
-    console.log(artist)
-
     useEffect(() => {
         let disposed = false
 
@@ -38,7 +36,13 @@ const SingleArtist = () => {
     const increment = () => {
         number += 1
     }
+
     let { id } = useParams()
+
+    if (error) {
+        console.error(error)
+    }
+
     return (
         <>
             {artist ?

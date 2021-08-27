@@ -10,6 +10,10 @@ const Login = () => {
 
     const code = new URLSearchParams(window.location.search).get("code")
 
+    if (error) {
+        console.error(error)
+    }
+
     useEffect(() => {
         if (!code) return // no code. do nothing.
 
@@ -20,11 +24,10 @@ const Login = () => {
             .then(() => {
                 if (disposed) return
                 setError(null)
-                window.history.pushState({}, null, "/")
+                window.history.pushState({ }, null, "/")
             })
             .catch(error => {
                 if (disposed) return
-                console.error(error)
                 setError(error)
             })
 

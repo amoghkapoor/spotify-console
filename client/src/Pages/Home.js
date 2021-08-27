@@ -55,6 +55,10 @@ const Home = () => {
         number += 1
     }
 
+    if (error) {
+        console.error(error)
+    }
+
     return (
         <>
             {featuredPlaylists && categories ?

@@ -40,6 +40,10 @@ const Recent = () => {
         return <span className="error">{error.message}</span>
     }
 
+    if (error) {
+        console.error(error)
+    }
+
     return (
         <div className="container">
 

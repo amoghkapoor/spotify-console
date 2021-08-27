@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import { useParams } from "react-router-dom"
 import PlaylistsGrid from "../Components/PlaylistsGrid"
@@ -56,7 +55,9 @@ const GenrePlaylists = () => {
         number += 1
     }
 
-    console.log(genre)
+    if (error) {
+        console.error(error)
+    }
 
     return (
         <>

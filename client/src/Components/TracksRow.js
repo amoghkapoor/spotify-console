@@ -26,9 +26,9 @@ const TracksRow = (props) => {
                             </a> :
                             null}
                     </div>
-                    {songs.map(track => {
+                    {songs.map((track, index) => {
                         return (
-                            <Track id={track.id} track={track} styles={props.styles} />
+                            <Track key={index} track={track} styles={props.styles} />
                         )
                     })}
                 </div>

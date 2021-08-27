@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import PlaylistsGrid from '../Components/PlaylistsGrid'
 
@@ -19,7 +18,6 @@ const Library = () => {
                 if (disposed) return
                 setError(null)
                 setPlaylists(res.body.items)
-                console.log(res.body.items)
             })
             .catch((err) => {
                 if (disposed) return
@@ -34,6 +32,10 @@ const Library = () => {
 
     const increment = () => {
         number += 1
+    }
+
+    if (error) {
+        console.error(error)
     }
 
     return (

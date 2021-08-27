@@ -15,8 +15,6 @@ const Dashboard = () => {
     const [userFollowers, setUserFollowers] = useState("")
     const [userImage, setUserImage] = useState([])
     const [userLink, setUserLink] = useState("")
-    // eslint-disable-next-line no-unused-vars
-    const [userId, setUserId] = useState("")
     const [userFollowing, setUserFollowing] = useState("")
     const [userTopArtists, setUserTopArtists] = useState([])
     const [userTopSongs, setUserTopSongs] = useState([])
@@ -59,7 +57,6 @@ const Dashboard = () => {
                 setUserImage(data.images)
                 setUserFollowers(data.followers["total"])
                 setUserLink(data.external_urls.spotify)
-                setUserId(data.id)
                 setError(null)
             })
             .catch((err) => {
@@ -68,7 +65,6 @@ const Dashboard = () => {
                 setUserImage([])
                 setUserFollowers("")
                 setUserLink("")
-                setUserId("")
                 setError(err)
             });
 
@@ -106,6 +102,10 @@ const Dashboard = () => {
         return () => disposed = true
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [number])
+
+    if (error) {
+        console.error(error)
+    }
 
     const increment = () => {
         number += 1

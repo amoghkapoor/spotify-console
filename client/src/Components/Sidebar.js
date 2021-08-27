@@ -14,7 +14,6 @@ const Sidebar = () => {
     const showSidebar = () => setSidebar(!sidebar);
     const toggleButton = () => {
         const button = document.querySelector(".navbar")
-        console.log(sidebar)
         if (!sidebar) {
             button.style.display = "none"
         }

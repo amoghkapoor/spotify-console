@@ -33,12 +33,15 @@ const Search = () => {
     }, [number, query])
 
     if (query.length === 0) {
-        console.log(query)
         setQuery(" ")
     }
 
     const increment = () => {
         number += 1
+    }
+
+    if (error) {
+        console.error(error)
     }
 
     return (
