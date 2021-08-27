@@ -1,0 +1,20 @@
+.playlists-grid-outer-container {
+	.heading {
+		font-weight: 600;
+		font-size: 2rem;
+		padding-left: 9rem;
+		margin-top: 5rem;
+	}
+	.playlists-grid-inner-container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 2rem;
+
+		.playlists-grid-container {
+			place-items: center;
+			display: grid;
+			width: 80%;
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}

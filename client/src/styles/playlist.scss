@@ -1,0 +1,60 @@
+.playlist-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+	margin: 2rem;
+	cursor: pointer;
+
+	.playlist-image-container {
+		width: 250px;
+		height: 250px;
+		margin-bottom: 1rem;
+		position: relative;
+
+		.playlist-image {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+
+		.overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: all 0.4s ease;
+			background-color: #000;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	}
+
+	.playlist-name {
+		font-weight: 600;
+		font-size: 1.1rem;
+		margin-bottom: 0.25rem;
+	}
+
+	.playlist-tracks {
+		font-size: 0.8rem;
+		color: rgb(155, 155, 155);
+	}
+
+	&:hover {
+		.playlist-image-container {
+			.overlay {
+				opacity: 0.4;
+			}
+		}
+	}
+}
+
+.playlist-container:first-child {
+	margin-left: 0;
+}

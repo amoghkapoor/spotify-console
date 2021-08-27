@@ -1,0 +1,17 @@
+.playlists-row-outer-container {
+	padding-left: 4rem;
+	margin-bottom: 2rem;
+	.playlists-row-container {
+		display: flex;
+		overflow-x: scroll;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.heading {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+}

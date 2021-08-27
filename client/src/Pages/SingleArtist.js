@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import Loader from "../Components/Loader"
 import _ from "lodash"
-import TracksRow from '../Components/TracksRow'
 
 import "../styles/singleArtist.scss"
 
@@ -11,9 +10,10 @@ let number = 0
 
 const SingleArtist = () => {
     const [artist, setArtist] = useState(null)
-    const [artistTopTracks, setArtistTopTracks] = useState(null)
     const { api, refreshableCall } = useSpotify()
     const [error, setError] = useState(null)
+
+    console.log(artist)
 
     useEffect(() => {
         let disposed = false

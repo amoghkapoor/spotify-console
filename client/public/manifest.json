@@ -1,6 +1,8 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Spotify Clone",
+  "name": "Spotify Clone with song analysis and a preview of 30 seconds",
+  "author": "Amogh Kapoor",
+  "author_github": "https://github.com/amoghkapoor",
   "icons": [
     {
       "src": "",
@@ -20,6 +22,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "rgb(24, 24, 24",
+  "background_color": "rgb(24, 24, 24)"
 }

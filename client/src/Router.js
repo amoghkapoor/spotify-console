@@ -1,4 +1,3 @@
-// MyRouter.js (rename it however you like)
 import { useSpotify } from "./Spotify/SpotifyContext"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from "./Pages/Login"
@@ -11,6 +10,8 @@ import SingleTrack from "./Pages/SingleTrack"
 import SingleArtist from "./Pages/SingleArtist"
 import Home from "./Pages/Home"
 import Search from "./Pages/Search"
+import PlaylistPage from "./Pages/PlaylistPage"
+import GenrePlaylists from "./Pages/GenrePlaylists"
 
 
 const MyRouter = () => {
@@ -49,6 +50,12 @@ const MyRouter = () => {
                 </Route>
                 <Route path="/artist/:id">
                     <SingleArtist />
+                </Route>
+                <Route path="/playlist/:id">
+                    <PlaylistPage />
+                </Route>
+                <Route path="/genre/:id">
+                    <GenrePlaylists />
                 </Route>
             </Switch>
         </Router>

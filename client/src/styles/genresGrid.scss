@@ -1,0 +1,16 @@
+.genres-grid-outer-container {
+	padding: 0 4rem;
+	margin-bottom: 2rem;
+	.genres-grid-container {
+		display: grid;
+		grid-template-columns: repeat(7, 1fr);
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	.heading {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+}

@@ -4,6 +4,7 @@ import TracksRow from "../Components/TracksRow"
 import "../styles/search.scss"
 import * as VscIcon from 'react-icons/vsc'
 import * as AiIcons from 'react-icons/ai'
+import Loader from "../Components/Loader"
 
 let number = 0
 
@@ -15,11 +16,10 @@ const Search = () => {
 
     useEffect(() => {
         let disposed = false
-        refreshableCall(() => api.searchTracks(query))
+        refreshableCall(() => api.searchTracks(query, { limit: 50 }))
             .then((res) => {
                 if (disposed) return
                 setResults(res.body.tracks.items)
-                console.log(query)
                 setError(null)
             })
             .catch((err) => {
@@ -42,35 +42,38 @@ const Search = () => {
     }
 
     return (
-        <div className="search-container">
-            <div className="search-bar-container">
-                <div className="search-icon">
-                    <AiIcons.AiOutlineSearch style={{}} />
-                </div>
-                <input
-                    type="search"
-                    className="search-bar"
-                    onChange={(e) => setQuery(e.target.value)}
-                    placeholder="Search for artists"
-                />
-            </div>
-            <div className="heading">Top Results</div>
-            {results ? <TracksRow
-                songs={results}
-                styles={
-                    {
-                        headingSize: "2rem",
-                        containerWidth: "100%"
-                    }
-                }
-            /> : null}
-            {query === " " ? <div className="search-no-results">
-                <VscIcon.VscSearchStop />
-                <span>
-                    No matching songs found.
-                </span>
-            </div> : null}
-        </div>
+        <>
+            {results ?
+                <div className="search-container">
+                    <div className="search-bar-container">
+                        <div className="search-icon">
+                            <AiIcons.AiOutlineSearch style={{ }} />
+                        </div>
+                        <input
+                            type="search"
+                            className="search-bar"
+                            onChange={(e) => setQuery(e.target.value)}
+                            placeholder="Search for tracks"
+                        />
+                    </div>
+                    <div className="heading">Top Results</div>
+                    {results ? <TracksRow
+                        songs={results}
+                        styles={
+                            {
+                                headingSize: "2rem",
+                                containerWidth: "100%"
+                            }
+                        }
+                    /> : null}
+                    {query === " " ? <div className="search-no-results">
+                        <VscIcon.VscSearchStop />
+                        <span>
+                            No matching songs found.
+                        </span>
+                    </div> : null}
+                </div> : <Loader />}
+        </>
     )
 }
 
