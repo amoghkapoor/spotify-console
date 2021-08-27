@@ -11,7 +11,7 @@ A Spotify clone which gives the user a preview of 30 seconds and analysis for ea
 - HTML
 - JS
 - CSS
-  
+- Spotify Web API
 ## Packages
 - Axios
 - CORS
