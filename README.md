@@ -3,4 +3,23 @@ A Spotify clone which gives the user a preview of 30 seconds and analysis for ea
 
 ## In Development
 
+## Tech Stack
+- React.js
+- Node.js
+- Express.js
+- SCSS 
+- HTML
+- JS
+- CSS
+  
+## Packages
+- Axios
+- CORS
+- Node-Sass
+- Lodash
+- spotify-web-api-node
+- react-h5-audio-player
+- react-icons
+- react-loaders
+- dotenv
 #### Project inspiration: [Brittany Chiang](https://github.com/bchiang7)
