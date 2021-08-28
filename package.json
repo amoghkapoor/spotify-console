@@ -4,7 +4,7 @@
   "description": "A Spotify clone which gives the user a preview of 30 seconds and analysis for each song. Made by Spotify API, Node.js, React.js",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server/server.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
