@@ -9,7 +9,7 @@ app.use(cors())
 app.use(express.json())
 
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static("../client/build"))
+    app.use(express.static("client/build"))
 
     app.get("*", (req, res) => {
         res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
@@ -29,7 +29,7 @@ app.post("/refresh", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://localhost:3000',
+        redirectUri: 'https://amogh-spotify-clone.herokuapp.com',
         refreshToken
     });
     spotifyApi.refreshAccessToken()
@@ -48,7 +48,7 @@ app.post("/login", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://localhost:3000'
+        redirectUri: 'https://amogh-spotify-clone.herokuapp.com'
     });
     spotifyApi.authorizationCodeGrant(code)
         .then((data) => {
