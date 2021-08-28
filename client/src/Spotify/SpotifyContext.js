@@ -52,7 +52,7 @@ export function SpotifyAuthContextProvider({ children }) {
 
     function exchangeCode(code) {
         return axios
-            .post("http://localhost:3001/login", {
+            .post("https://amogh-spotify-clone.herokuapp.com/login", {
                 code
             })
             .then(res => {
@@ -70,7 +70,7 @@ export function SpotifyAuthContextProvider({ children }) {
     function refreshAccessToken() {
         const refreshToken = tokenInfo.refreshToken;
         return axios
-            .post("http://localhost:3001/refresh", {
+            .post("https://amogh-spotify-clone.herokuapp.com/refresh", {
                 refreshToken
             })
             .then(res => {
