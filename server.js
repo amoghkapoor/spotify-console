@@ -29,7 +29,7 @@ app.post("/refresh", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://spotify-console.herokuapp.com',
+        redirectUri: 'https://amogh-spotify-clone.herokuapp.com',
         refreshToken
     });
     spotifyApi.refreshAccessToken()
@@ -48,7 +48,7 @@ app.post("/login", (req, res) => {
     var spotifyApi = new SpotifyWebApi({
         clientId: process.env.CLIENT_ID,
         clientSecret: process.env.CLIENT_SECRET,
-        redirectUri: 'http://spotify-console.herokuapp.com'
+        redirectUri: 'https://amogh-spotify-clone.herokuapp.com'
     });
     spotifyApi.authorizationCodeGrant(code)
         .then((data) => {
@@ -65,4 +65,3 @@ app.post("/login", (req, res) => {
             console.error("Code Grant Authorization Error", err);
         })
 })
-// server
