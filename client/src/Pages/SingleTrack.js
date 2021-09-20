@@ -4,6 +4,7 @@ import { useSpotify } from "../Spotify/SpotifyContext"
 import Loader from "../Components/Loader"
 import "../styles/singleTrack.scss"
 import AudioPlayer from 'react-h5-audio-player'
+import Chart from "../Components/Chart"
 
 let number = 0
 
@@ -39,6 +40,7 @@ const SingleTrack = () => {
         preview_url = track.preview_url
 
     }
+
     const parsePitchClass = (key_value) => {
         key = key_value;
 
@@ -107,6 +109,7 @@ const SingleTrack = () => {
         refreshableCall(() => api.getAudioFeaturesForTrack(id))
             .then((res) => {
                 if (disposed) return
+                console.log(res.body)
                 setAudioFeatures(res.body)
                 setError(null)
             })
@@ -227,6 +230,9 @@ const SingleTrack = () => {
                             <div className="feature-text">{segments}</div>
                             <div className="feature-label">Segments</div>
                         </div>
+                    </div>
+                    <div className="chart-container">
+                        <Chart features={audioFeatures} />
                     </div>
                 </div>
                 : <Loader />}

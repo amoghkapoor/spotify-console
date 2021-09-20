@@ -24,7 +24,7 @@ const Login = () => {
             .then(() => {
                 if (disposed) return
                 setError(null)
-                window.history.pushState({ }, null, "/")
+                window.history.pushState({}, null, "/")
             })
             .catch(error => {
                 if (disposed) return
@@ -44,10 +44,7 @@ const Login = () => {
         "playlist-modify-private",
         "user-follow-modify",
         "user-follow-read",
-        "user-library-modify",
         "playlist-read-private",
-        "user-read-email",
-        "user-library-read",
         "user-read-recently-played"
     ]
 
