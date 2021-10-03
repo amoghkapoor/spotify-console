@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import TracksRow from "../Components/TracksRow"
+import { useEffect, useState } from 'react'
+import { TracksRow } from "../Components"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import "../styles/recent.scss"
 

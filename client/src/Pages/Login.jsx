@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import "../styles/login.scss"
-import Loader from "../Components/Loader"
+import { Loader } from "../Components"
 
 import { useSpotify } from '../Spotify/SpotifyContext'
 
@@ -15,9 +15,7 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (!code) return // no code. do nothing.
-
-        // if here, code available for login
+        if (!code) return
 
         let disposed = false
         exchangeCode(code)
@@ -55,12 +53,9 @@ const Login = () => {
     }
 
     if (code) {
-        // TODO: Render progress bar/spinner/throbber for "Signing in..."
         return <Loader />
     }
 
-    // if here, no code & no error. Show login button
-    // TODO: Render login button
     return (
         <div className="login-container">
             <p className="heading">Spotify Profile</p>

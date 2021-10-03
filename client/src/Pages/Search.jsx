@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSpotify } from "../Spotify/SpotifyContext"
-import TracksRow from "../Components/TracksRow"
+import { TracksRow, Loader } from "../Components"
 import "../styles/search.scss"
 import * as VscIcon from 'react-icons/vsc'
 import * as AiIcons from 'react-icons/ai'
-import Loader from "../Components/Loader"
 
 let number = 0
 
@@ -50,7 +49,7 @@ const Search = () => {
                 <div className="search-container">
                     <div className="search-bar-container">
                         <div className="search-icon">
-                            <AiIcons.AiOutlineSearch style={{ }} />
+                            <AiIcons.AiOutlineSearch style={{}} />
                         </div>
                         <input
                             type="search"

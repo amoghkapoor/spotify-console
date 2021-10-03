@@ -1,5 +1,5 @@
 .playlists-row-outer-container {
-	padding-left: 4rem;
+	padding-left: 1rem;
 	margin-bottom: 2rem;
 	.playlists-row-container {
 		display: flex;
@@ -8,6 +8,14 @@
 		&::-webkit-scrollbar {
 			display: none;
 		}
+	}
+
+	@media screen and (min-width: 520px) {
+		padding-left: 2rem;
+	}
+
+	@media screen and (min-width: 900px) {
+		padding-left: 4rem;
 	}
 
 	.heading {

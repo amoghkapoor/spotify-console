@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
-import Loader from "../Components/Loader"
+import { Loader } from "../Components"
 import _ from "lodash"
 
 import "../styles/singleArtist.scss"

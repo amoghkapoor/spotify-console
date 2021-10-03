@@ -1,5 +1,4 @@
-import React from 'react'
-import Playlist from './Playlist'
+import {Playlist} from './'
 import "../styles/playlistsRow.scss"
 
 const PlaylistsRow = ({ playlists, heading, styles }) => {

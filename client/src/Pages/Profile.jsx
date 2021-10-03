@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import TracksRow from "../Components/TracksRow"
-import ArtistsRow from "../Components/ArtistsRow"
+import { useEffect, useState } from 'react'
+import { TracksRow, ArtistsRow, Loader } from "../Components"
 import { useSpotify } from "../Spotify/SpotifyContext"
 import "../styles/profile.scss"
 import { logout } from "../Spotify/SpotifyContext"
-import Loader from "../Components/Loader"
 
 let number = 0
 

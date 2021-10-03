@@ -1,6 +1,5 @@
-import React from 'react'
 import "../styles/tracksRow.scss"
-import Track from './Track'
+import {Track} from './'
 
 const TracksRow = (props) => {
     let songs = props.songs

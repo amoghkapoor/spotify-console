@@ -2,8 +2,16 @@
 	.heading {
 		font-weight: 600;
 		font-size: 2rem;
-		padding-left: 9rem;
+		padding-left: 2rem;
 		margin-top: 5rem;
+
+		@media screen and (min-width: 728px) {
+			padding-left: 7rem;
+		}
+
+		@media screen and (min-width: 1024px) {
+			padding-left: 9rem;
+		}
 	}
 	.playlists-grid-inner-container {
 		display: flex;

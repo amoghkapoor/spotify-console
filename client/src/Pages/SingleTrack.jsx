@@ -1,10 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from "react-router-dom"
 import { useSpotify } from "../Spotify/SpotifyContext"
-import Loader from "../Components/Loader"
+import { Loader, Chart } from "../Components"
 import "../styles/singleTrack.scss"
 import AudioPlayer from 'react-h5-audio-player'
-import Chart from "../Components/Chart"
 
 let number = 0
 
@@ -87,7 +86,7 @@ const SingleTrack = () => {
         return key
     }
 
-    const audiofunction = () => {
+    const audioFunction = () => {
         player.current.audio.current.play();
     };
 
@@ -179,7 +178,7 @@ const SingleTrack = () => {
 
                             <a href={track.external_urls["spotify"]} className="track-link" target="_blank" rel="noopener noreferrer">PLAY ON SPOTIFY</a>
                             {preview_url ?
-                                <button className="track-link" onClick={() => audiofunction()}>
+                                <button className="track-link" onClick={() => audioFunction()}>
                                     PLAY PREVIEW
                                 </button> : null}
 

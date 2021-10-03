@@ -1,12 +1,40 @@
 .genres-grid-outer-container {
-	padding: 0 4rem;
+	padding: 0 1rem;
 	margin-bottom: 2rem;
 	.genres-grid-container {
 		display: grid;
-		grid-template-columns: repeat(7, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		&::-webkit-scrollbar {
 			display: none;
 		}
+
+		@media screen and (min-width: 520px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@media screen and (min-width: 768px) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@media screen and (min-width: 950px) {
+			grid-template-columns: repeat(5, 1fr);
+		}
+
+		@media screen and (min-width: 1150px) {
+			grid-template-columns: repeat(6, 1fr);
+		}
+
+		@media screen and (min-width: 1325px) {
+			grid-template-columns: repeat(7, 1fr);
+		}
+	}
+
+	@media screen and (min-width: 520px) {
+		padding: 0 2rem;
+	}
+
+	@media screen and (min-width: 900px) {
+		padding: 0 4rem;
 	}
 
 	.heading {

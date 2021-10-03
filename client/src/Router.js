@@ -1,70 +1,31 @@
 import { useSpotify } from "./Spotify/SpotifyContext"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from "./Pages/Login"
-import TopArtists from "./Pages/TopArtists"
-import TopTracks from "./Pages/TopTracks"
-import Recent from "./Pages/Recent"
-import Sidebar from "./Components/Sidebar"
-import Profile from "./Pages/Profile"
-import SingleTrack from "./Pages/SingleTrack"
-import SingleArtist from "./Pages/SingleArtist"
-import Home from "./Pages/Home"
-import Search from "./Pages/Search"
-import PlaylistPage from "./Pages/PlaylistPage"
-import GenrePlaylists from "./Pages/GenrePlaylists"
-import Library from "./Pages/Library"
-import NotFound from "./Pages/NotFound"
-
+import { Login, TopArtists, TopTracks, Recent, Profile, SingleTrack, SingleArtist, Home, Search, PlaylistPage, GenrePlaylists, Library, NotFound, } from "./Pages"
+import { Sidebar } from "./Components"
 
 const MyRouter = () => {
     const { hasToken } = useSpotify()
 
     if (!hasToken) {
-        // No access token available, show login screen
         return <Login />
     }
 
-    // Access token available, show main content
     return (
         <Router>
             <Sidebar />
             <Switch>
-                <Route exact path="/">
-                    <Home />
-                </Route>
-                <Route path="/profile">
-                    <Profile />
-                </Route>
-                <Route path="/search">
-                    <Search />
-                </Route>
-                <Route path="/tracks">
-                    <TopTracks />
-                </Route>
-                <Route path="/artists">
-                    <TopArtists />
-                </Route>
-                <Route path="/recent">
-                    <Recent />
-                </Route>
-                <Route path="/track/:id">
-                    <SingleTrack />
-                </Route>
-                <Route path="/artist/:id">
-                    <SingleArtist />
-                </Route>
-                <Route path="/playlist/:id">
-                    <PlaylistPage />
-                </Route>
-                <Route path="/genre/:id">
-                    <GenrePlaylists />
-                </Route>
-                <Route path="/library">
-                    <Library />
-                </Route>
-                <Route>
-                    <NotFound />
-                </Route>
+                <Route exact path="/" component={Home} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/search" component={Search} />
+                <Route path="/tracks" component={TopTracks} />
+                <Route path="/artists" component={TopArtists} />
+                <Route path="/recent" component={Recent} />
+                <Route path="/track/:id" component={SingleTrack} />
+                <Route path="/artist/:id" component={SingleArtist} />
+                <Route path="/playlist/:id" component={PlaylistPage} />
+                <Route path="/genre/:id" component={GenrePlaylists} />
+                <Route path="/library" component={Library} />
+                <Route component={NotFound} />
             </Switch>
         </Router>
     )

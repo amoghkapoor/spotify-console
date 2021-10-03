@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSpotify } from "../Spotify/SpotifyContext"
 import { useParams } from "react-router-dom"
-import TracksRow from "../Components/TracksRow"
+import { TracksRow, Loader } from "../Components"
 import "../styles/playlistPage.scss"
-import Loader from "../Components/Loader"
 import _ from "lodash"
 
 let number = 0

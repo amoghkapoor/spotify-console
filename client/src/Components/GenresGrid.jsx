@@ -1,5 +1,4 @@
-import React from 'react'
-import Genre from './Genre'
+import {Genre} from './'
 import "../styles/genresGrid.scss"
 
 const GenresGrid = ({ genres, heading }) => {

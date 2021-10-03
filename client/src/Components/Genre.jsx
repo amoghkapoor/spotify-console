@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/genre.scss";
 import { Link } from "react-router-dom"
 

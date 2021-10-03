@@ -1,5 +1,4 @@
-import React from 'react'
-import Artist from './Artist'
+import {Artist} from './'
 import "../styles/artistsGrid.scss"
 
 const ArtistsGrid = (props) => {

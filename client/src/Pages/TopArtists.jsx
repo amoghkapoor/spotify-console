@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import ArtistsGrid from '../Components/ArtistsGrid'
+import { useEffect, useState } from 'react'
+import { ArtistsGrid, Loader } from '../Components'
 import { useSpotify } from "../Spotify/SpotifyContext"
-import Loader from "../Components/Loader"
 
 let number = 0
 

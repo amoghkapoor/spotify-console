@@ -78,8 +78,6 @@
 		text-align: center;
 		border-top: 1px solid rgb(86, 86, 86);
 		border-left: 1px solid rgb(86, 86, 86);
-		// grid-template-columns: repeat(2, minmax(100px, 1fr));
-		// grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 
 		.feature {
 			padding: 15px 10px;
@@ -127,7 +125,7 @@ $rhap_font-family: inherit !default;
 	}
 
 	svg {
-		vertical-align: initial; // overwrite Bootstrap default
+		vertical-align: initial;
 	}
 }
 

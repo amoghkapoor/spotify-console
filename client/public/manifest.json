@@ -1,21 +1,16 @@
 {
-  "short_name": "Spotify Clone",
-  "name": "Spotify Clone with song analysis and a preview of 30 seconds",
+  "short_name": "Spotify Console",
+  "name": "Spotify Console with song analysis and a preview of 30 seconds",
   "author": "Amogh Kapoor",
   "author_github": "https://github.com/amoghkapoor",
   "icons": [
     {
-      "src": "",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "",
+      "src": "spotify-icon-green.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "",
+      "src": "spotify-icon-green.png",
       "type": "image/png",
       "sizes": "512x512"
     }

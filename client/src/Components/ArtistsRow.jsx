@@ -1,6 +1,5 @@
-import React from 'react'
 import "../styles/artistsRow.scss"
-import Artist from './Artist'
+import {Artist} from './'
 
 const ArtistsRow = (props) => {
     const artists = props.artists

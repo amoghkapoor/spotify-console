@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import "../styles/sidebar.scss"
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';

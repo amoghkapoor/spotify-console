@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSpotify } from "../Spotify/SpotifyContext"
 import { useParams } from "react-router-dom"
-import PlaylistsGrid from "../Components/PlaylistsGrid"
-import Loader from "../Components/Loader"
+import { PlaylistsGrid, Loader } from "../Components"
 
 let number = 0
 

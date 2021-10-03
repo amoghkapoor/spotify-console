@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/track.scss";
 import { IconContext } from "react-icons"
 import * as AiIcons from 'react-icons/ai'

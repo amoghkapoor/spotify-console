@@ -1,4 +1,3 @@
-import React from 'react'
 import "../styles/artist.scss"
 import { IconContext } from "react-icons"
 import { Link } from "react-router-dom"

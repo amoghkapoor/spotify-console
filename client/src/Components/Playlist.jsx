@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
 import "../styles/playlist.scss"
 import { Link } from "react-router-dom"
-import Loader from "../Components/Loader"
+import {Loader} from "./"
 
 const Playlist = ({ playlist, styles }) => {
     let href;
