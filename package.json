@@ -1,19 +1,18 @@
 {
-  "name": "spotify-clone",
-  "version": "1.0.0",
-  "description": "A Spotify clone which gives the user a preview of 30 seconds and analysis for each song. Made by Spotify API, Node.js, React.js",
-  "main": "server/server.js",
-  "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-  },
-  "keywords": [],
-  "author": "Amogh Kapoor",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "spotify-web-api-node": "^5.0.2"
-  }
+	"name": "spotify-clone",
+	"version": "1.0.0",
+	"description": "A Spotify clone which gives the user a preview of 30 seconds and analysis for each song. Made by Spotify API, Node.js, React.js",
+	"main": "server/server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"keywords": [],
+	"author": "Amogh Kapoor",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"spotify-web-api-node": "^5.0.2"
+	}
 }

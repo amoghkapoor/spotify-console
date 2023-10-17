@@ -49,7 +49,7 @@ export function SpotifyAuthContextProvider({ children }) {
 
     function exchangeCode(code) {
         return axios
-            .post("https://spotify-console.herokuapp.com/login", {
+            .post("http://localhost:3001/login", {
                 code
             })
             .then(res => {
@@ -65,7 +65,7 @@ export function SpotifyAuthContextProvider({ children }) {
     function refreshAccessToken() {
         const refreshToken = tokenInfo.refreshToken;
         return axios
-            .post("https://spotify-console.herokuapp.com/refresh", {
+            .post("http://localhost:3001/refresh", {
                 refreshToken
             })
             .then(res => {
