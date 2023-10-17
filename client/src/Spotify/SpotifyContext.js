@@ -49,7 +49,7 @@ export function SpotifyAuthContextProvider({ children }) {
 
     function exchangeCode(code) {
         return axios
-            .post("https://spotfiy-console.onrender.com/login", {
+            .post("https://spotify-console.onrender.com/login", {
                 code
             })
             .then(res => {
@@ -65,7 +65,7 @@ export function SpotifyAuthContextProvider({ children }) {
     function refreshAccessToken() {
         const refreshToken = tokenInfo.refreshToken;
         return axios
-            .post("https://spotfiy-console.onrender.com/refresh", {
+            .post("https://spotify-console.onrender.com/refresh", {
                 refreshToken
             })
             .then(res => {
