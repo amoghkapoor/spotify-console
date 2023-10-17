@@ -33,7 +33,7 @@ const Login = () => {
 	}, [code, exchangeCode]);
 
 	const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
-	const REDIRECT_URI = "http://localhost:3000";
+	const REDIRECT_URI = "https://spotfiy-console.onrender.com";
 	const CLIENT_ID = "929c5579854140cf8bea0a5bcf923eeb";
 	const RESPONSE_TYPE = "code";
 	const SCOPES = [
