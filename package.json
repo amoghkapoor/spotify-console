@@ -1,7 +1,7 @@
 {
-	"name": "spotify-clone",
+	"name": "spotify-console",
 	"version": "1.0.0",
-	"description": "A Spotify clone which gives the user a preview of 30 seconds and analysis for each song. Made by Spotify API, Node.js, React.js",
+	"description": "A Spotify console which gives the user a preview of 30 seconds and analysis for each song. Made by Spotify API, Node.js, React.js",
 	"main": "server/server.js",
 	"scripts": {
 		"start": "node server.js"
